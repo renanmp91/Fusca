@@ -1,0 +1,276 @@
+/**VARIÁVEIS**/
+:root{
+    --header-color: #000;
+    --h1-color: rgb(245, 245, 245);
+    --h2-color: #d6d6d6;
+    --btn-dark-bg: rgba(23,26,32, 0.8);
+    --btn-light-bg: rgba(255,255,255,0.65);
+    --btn-dark-color: #FFF;
+    --btn-light-color: #000;
+}
+
+/**Fontes**/
+ 
+@font-face {
+    font-family: GothamMedium;
+    src: url(../fonts/GothamMedium.otf);
+}
+@font-face {
+    font-family: GothamBook;
+    src: url(../fonts/GothamBookRegular.otf);
+}
+
+body {
+    font-family: 'GothamMedium', Helvetica, Arial;
+    font-size: 14px;
+    margin: 0;
+}
+
+/*HEADER*/
+
+header{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center ;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+header .logo {
+    width: 120px;
+    margin-left: 20px;
+}
+
+header ul, header li {
+    list-style: none;
+}
+
+header .middle ul{
+    display: flex;
+
+}
+
+header .middle li{
+    margin: 0px 10px;
+}
+
+header .middle a:hover, header .rightside a:hover{
+    color: var(--btn-dark-color)
+}
+
+header .middle a{
+    text-decoration: none;
+    color: var(--header-color);
+    text-transform: uppercase;
+}
+
+header .rightside ul {
+    display: flex;
+}
+
+header .rightside li{
+    margin: 0px 10px;
+}
+
+header .rightside a{
+    text-decoration: none;
+    color: var(--header-color);
+    text-transform: uppercase;
+}
+
+header .menu-icon{
+    width: 18px;
+    height: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+    
+}
+
+header .menu-icon div{
+    height: 2px;
+    background-color: var(--header-color);
+    
+}
+
+/* MAIN */
+
+main{
+    background-image: url(../images/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 300vh;
+    /*para deixar o main por baixo do menu, ir no header e adicionar nele um position fixed, com top, right e left 0*/
+}
+
+main .info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    scroll-behavior: smooth;
+}
+
+.fusca{
+    height: 100vh;
+    width: 100vw;
+    padding-top: 50px;
+    height: calc(100vh - 50px);
+    background-size: cover;
+    background-position: center;
+}
+
+.One{
+    background-image: url(../images/tyler-clemmensen-7iSKqepTNaA-unsplash.jpg);
+
+}
+
+.Two{
+    background-image: url(../images/tom-arrowsmith-n72XSmc3Rlc-unsplash.jpg);
+
+}
+
+.Three{
+    background-image: url(../images/annie-spratt-BPnEPgxY5SA-unsplash.jpg);
+    background-position: bottom;
+}
+
+main h1{
+    margin: 0px;
+    font-size: 40px;
+    font-weight: normal;
+    color: var(--h1-color);
+}
+
+main h2{
+    margin: 0px;
+    font-size: 14px;
+    font-weight: normal;
+    font-family: 'GothamBook', helvetica, arial;
+    color: var(--h2-color);
+}
+
+main h2 a{
+    color: var(--h1-color);
+}
+
+/*FOOTER*/
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 30px;
+    right: 0px;
+}
+
+footer .buttons_area{
+    display: flex;
+    justify-content: center;
+}
+
+footer .buttons_area a{
+    display: block;
+    width: 220px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 15px;
+    border-radius: 30px;
+    margin: 0px 10px;
+}
+
+footer .btn--dark{
+    background-color: var(--btn-dark-bg);
+    color: var(--btn-dark-color);
+}
+
+footer .btn--dark:hover, footer .btn--light:hover{
+    background-color: rgb(186, 218, 134);
+}
+
+footer .btn--light{
+    background-color: var(--btn-light-bg);
+    color: var(--btn-light-color);
+}
+
+footer .arrow_area{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    height: 30px; /*Essa altura ajuda na animação da setinha, pois a seta irá se movimentar dentro desta área*/
+}
+
+@keyframes arrow {
+    0% {
+        margin-top: 0px;
+    }
+
+    25% {
+        margin-top: 5px;
+    }
+
+    30% {
+        margin-top: 0px;
+    }
+
+    40% {
+        margin-top: 3px;
+    }
+
+    50% {
+        margin-top: 0px;
+    }
+
+    100% {
+        margin-top: 0px;
+    }
+}
+
+footer .arrow{
+    height: 15px;
+    animation-name: arrow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform: rotateX(180deg);
+    cursor: pointer;
+}
+
+/*MEDIA QUERYS*/
+
+@media (max-width: 1200px) {
+    header .middle{
+        display: none;
+    }
+
+    header .rightside li{
+        display: none;
+    }
+
+    header .rightside li.menu {
+        display: flex;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    main{
+        background-image: url(../images/ms-homepage-mobile.jpg);
+    }
+
+    footer .buttons_area{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .buttons_area a{
+        width: calc(100vw - 60px);
+        margin: 10px 20px;
+    }
+}
